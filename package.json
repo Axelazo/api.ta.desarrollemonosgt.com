@@ -1,0 +1,31 @@
+{
+  "name": "api.ta.desarrollemonosgt.com",
+  "version": "0.0.1",
+  "description": "API Technical Assesment for Corporacion de Confianza",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "ts-node-dev --pretty --respawn ./src/server/index.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Axelazo/api.ta.desarrollemonosgt.com.git"
+  },
+  "author": "Axel Aguilar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Axelazo/api.ta.desarrollemonosgt.com/issues"
+  },
+  "homepage": "https://github.com/Axelazo/api.ta.desarrollemonosgt.com#readme",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.19.1",
+    "joi": "^17.12.2",
+    "sequelize": "^6.37.1"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.4.3"
+  }
+}
