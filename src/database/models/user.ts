@@ -5,7 +5,7 @@ import {
   InferCreationAttributes,
   Model,
 } from "sequelize";
-
+import bcrypt from "bcrypt";
 import { sequelize } from "../../configuration/database";
 
 class User extends Model<InferAttributes<User>, InferCreationAttributes<User>> {
@@ -52,9 +52,7 @@ User.init(
       allowNull: false,
       validate: {
         is: {
-          args: [
-            /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
-          ],
+          args: [/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d@$!%*?&]{8,}$/],
           msg: "Password must contain at least a minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character",
         },
         len: {
@@ -72,5 +70,18 @@ User.init(
     sequelize,
   }
 );
+
+User.beforeCreate(async (user: User) => {
+  // Lowercase the email
+  if (user.email) {
+    user.email = user.email.toLowerCase();
+  }
+
+  // Hash the password
+  if (user.password) {
+    const hashedPassword = await bcrypt.hash(user.password, 10); // Using bcrypt for hashing
+    user.password = hashedPassword;
+  }
+});
 
 export default User;
