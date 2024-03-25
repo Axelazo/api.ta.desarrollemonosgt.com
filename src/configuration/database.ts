@@ -1,14 +1,7 @@
 import { Dialect, Sequelize } from "sequelize";
-import { getFormattedDate } from "../utils/date";
 
-import {
-  DB_PORT,
-  DB_DATABASE_NAME,
-  DB_DIALECT,
-  DB_HOSTNAME,
-  DB_PASSWORD,
-  DB_USERNAME,
-} from "./environment";
+import { getFormattedDate } from "../utils/date";
+import { DB_DATABASE_NAME, DB_DIALECT, DB_HOSTNAME, DB_PASSWORD, DB_PORT, DB_USERNAME } from "./environment";
 
 let sequelize: Sequelize;
 
