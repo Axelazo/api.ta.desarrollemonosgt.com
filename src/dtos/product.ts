@@ -12,3 +12,7 @@ export type UpdateProductDTO = {
   description: string;
   price: number;
 };
+
+export type UpdateProductStockDTO = {
+  stock: number;
+};
